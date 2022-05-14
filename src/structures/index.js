@@ -14,4 +14,4 @@ module.exports = client;
   require(`./handler/${handlers}`) (client, globPromise, ascii)
 });
 
-client.login(process.env.DISCORD_TOKEN);
+client.start();

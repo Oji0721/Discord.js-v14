@@ -42,6 +42,9 @@ class WbotClient extends Client {
     this.config = require("../config/config.json");
     this.discordTogether = new DiscordTogether(this);
   }
+  start() {
+    this.login(process.env.DISCORD_TOKEN)
+  }
 }
 
 module.exports = { WbotClient };
