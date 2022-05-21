@@ -2,11 +2,9 @@ const { ChatInputCommandInteraction, ContextMenuCommandInteraction, ApplicationC
 const { WbotClient } = require('../client/WbotClient');
 
 /**
-* @param {WbotClient} client
-* @param {ChatInputCommandInteraction | ContextMenuCommandInteraction} interaction
-* @param {String[]} args
+* @typedef {{ client: WbotClient, interaction: ChatInputCommandInteraction | ContextMenuCommandInteraction, args: String[] }} RunOptions
 */
-function RunFunction(interaction, client, args) {}
+function RunFunction(RunOptions) {}
 
 class Command {
   /**
