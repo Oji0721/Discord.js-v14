@@ -6,7 +6,7 @@ module.exports = new Command({
     name: "eval",
     description: "Evalute some JavaScript files.",
     type: 1,
-    default_permission: false,
+    defaultPermission: false,
     options: [
       {
         name: 'code',

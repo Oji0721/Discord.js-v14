@@ -6,7 +6,7 @@ module.exports = new Command({
     name: "terminal",
     description: "Run a code in terminal.",
     type: 1,
-    default_permission: false,
+    defaultPermission: false,
     options: [
       {
         name: 'input',

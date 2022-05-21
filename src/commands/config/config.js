@@ -7,7 +7,7 @@ module.exports = new Command({
     name: 'config',
     description: 'setup some features in the server!',
     type: 1,
-    default_permission: false,
+    defaultPermission: false,
     userPermissions: 'Administrator',
     botPermissions: 'Administrator',
     options: [
