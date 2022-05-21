@@ -23,7 +23,7 @@ module.exports = {
       }
     ])
     .setFooter({ text: interaction.user.tag, iconURL: interaction.user.displayAvatarURL() })
-    .setColor(`#906FED`)
+    .setColor(client.color.mainCol)
     .setTimestamp();
     await interaction.deferReply({ ephemeral: true })
     

@@ -65,5 +65,6 @@ module.exports = {
         "voiceStateUpdate",
         "warn",
         "webhookUpdate",
+        "unhandledRejection"
     ]
 }

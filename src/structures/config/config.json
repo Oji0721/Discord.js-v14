@@ -1,4 +1,11 @@
 {
-    "prefix": "+",
-    "mongooseConnectionString": ""
+  "color": {
+    "mainColor": "#906FED",
+    "greenColor": "#50C790",
+    "redColor": "#FA5757"
+  },
+  "owners": [
+    "797410561050411038",
+    "900631272446115881"
+  ]
 }

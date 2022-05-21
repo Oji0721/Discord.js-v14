@@ -21,7 +21,7 @@ language = "nodejs"
   [packager.features]
   packageSearch = true
   guessImports = true
-  enabledForHosting = false
+  enabledForHosting = true
 
 [unitTest]
 language = "nodejs"

@@ -15,7 +15,10 @@ module.exports = async (client, globPromise, ascii) => {
     if (event.once) {
       client.once(event.name, (...args) => event.execute(...args, client));
       await table.addRow(F[7], '✅');
-    } else {
+    } else if (event.process) {
+      process.on(event.name, (...args) => event.execute(...args, client));
+      await table.addRow(F[7], '✅');
+    } else if (!event.once || !event.process) {
       client.on(event.name, (...args) => event.execute(...args, client));
       await table.addRow(F[7], '✅');
     }

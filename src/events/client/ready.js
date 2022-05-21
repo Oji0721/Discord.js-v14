@@ -1,4 +1,5 @@
 const { connect } = require('mongoose');
+require('dotenv').config();
 
 module.exports = {
   name: 'ready',

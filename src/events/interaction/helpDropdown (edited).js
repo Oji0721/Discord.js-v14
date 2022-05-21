@@ -15,7 +15,7 @@ module.exports = {
           .setAuthor({ name: 'The interaction is expired!', iconURL: 'https://cdn.lengolabs.com/qbot-icons/xmark.png' })
           .setDescription('The interaction is exprired please run the command if you want to use the command again.')
           .setFooter({ text: interaction.user.tag, iconURL: interaction.user.displayAvatarURL() })
-          .setColor(`#FA5757`)
+          .setColor(client.color.redColor)
           .setTimestamp();
         await interaction.deferReply({ ephemeral: true })
     

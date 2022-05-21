@@ -4,6 +4,7 @@ const {
   Collection 
 } = require('discord.js');
 const { DiscordTogether } = require('discord-together');
+require('dotenv').config();
 
 class WbotClient extends Client {
   constructor() {
@@ -36,14 +37,16 @@ class WbotClient extends Client {
       ]
     });
     this.commands = new Collection();
-    this.slashCommands = new Collection();
-    this.guildSlashCommands = new Collection();
+    this.guildCommands = new Collection();
     this.snipes = new Collection();
+    this.cooldown = new Collection();
     this.config = require("../config/config.json");
+    this.owners = this.config.owners;
+    this.color = this.config.color;
     this.discordTogether = new DiscordTogether(this);
   }
   start() {
-    this.login(process.env.DISCORD_TOKEN)
+    this.login(process.env.DISCORD_TOKEN);
   }
 }
 
