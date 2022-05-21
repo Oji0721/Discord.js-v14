@@ -19,7 +19,7 @@ if (!file?.name) {
   table.addRow(L[7], '✅');
 };
 
-    if ([ApplicationCommandType.Message, ApplicationCommandType.User].includes(file.type)) delete file.description;
+    if ([2, 3].includes(file.type)) delete file.description;
     arrayOfGuildSlashCommands.push(file)
   });
   client.on("ready", async () => {

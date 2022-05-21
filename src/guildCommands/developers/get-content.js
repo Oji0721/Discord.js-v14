@@ -4,8 +4,8 @@ module.exports = new Command({
   name: 'get-content',
   type: 3,
 
-  run: async ({ interaction }) => {
-    const msg = await interaction.channel.messages.fetch(interaction.targetId);
-    interaction.reply(msg.content)
+  run: async ({ inter }) => {
+    const msg = await inter.channel.messages.fetch(inter.targetId);
+    inter.reply(msg.content)
   }
 })

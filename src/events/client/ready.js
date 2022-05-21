@@ -7,7 +7,7 @@ module.exports = {
   
   async execute(client) {
     await client.application.fetch();
-    console.log(client.application.owner.id);
+    
     console.log(`${client.user.tag} is ready to go!`);
     await connect(process.env.MONGO_URL).then(() => console.log('Connected to mongodb')).catch((err) => console.log(err));
   }

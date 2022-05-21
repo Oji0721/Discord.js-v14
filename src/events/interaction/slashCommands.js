@@ -63,11 +63,5 @@ module.exports = {
         }
       }
     }
-
-    // Context Menu Handling
-    if (interaction.isContextMenuCommand()) {
-      const cmd = client.commands.get(interaction.commandName) || client.guildCommands.get(interaction.commandName);
-      if (cmd) cmd.run({ interaction, client });
-    }
   }
 }
