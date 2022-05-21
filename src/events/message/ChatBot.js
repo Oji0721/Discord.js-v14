@@ -26,7 +26,7 @@ module.exports = {
         })
         .catch((err) => {
           message.channel.sendTyping();
-          return message.channel.send(':x: An Error occured.').then((msg) => setTimeout(() => msg.delete(), 3000));
+          return message.channel.send(':x: An Error occured.').then((msg) => setTimeout(() => msg.delete(), 3000)).catch(err => {});
         })
       }
     })
