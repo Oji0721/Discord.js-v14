@@ -7,7 +7,7 @@ module.exports = new Command({
     type: 1,
     cooldown: 60000,
   
-    run: async (interaction, client) => {
+    run: async ({ interaction, client }) => {
       const row = new ActionRowBuilder()
       .addComponents([
         new SelectMenuBuilder()

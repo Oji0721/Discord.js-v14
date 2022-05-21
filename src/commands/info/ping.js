@@ -14,7 +14,7 @@ module.exports = new Command({
       }
     ],
 
-    run: async (interaction, client) => {
+    run: async ({ client, interaction }) => {
       const ephemeral = interaction.options.getBoolean('ephemeral');
       const pongMessage = await interaction.reply({ content: '⠀', fetchReply: true, ephemeral: ephemeral })
         const embed = new EmbedBuilder()

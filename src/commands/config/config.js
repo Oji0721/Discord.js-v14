@@ -45,7 +45,7 @@ module.exports = new Command({
       }
     ],
 
-  run: async (interaction) => {
+  run: async ({ interaction }) => {
     const subcommand = interaction.options.getSubcommand();
     const channel = interaction.options.getChannel('channel').id;
     switch (subcommand) {

@@ -6,7 +6,7 @@ module.exports = new Command({
   type: 1,
   cooldown: 10000,
 
-  run: async (interaction) => {
-    interaction.reply('working')
+  run: async ({ interaction }) => {
+    interaction.reply({ content: 'working' })
   }
 })

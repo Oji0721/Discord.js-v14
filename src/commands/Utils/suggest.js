@@ -15,7 +15,7 @@ module.exports = new Command({
       }
     ],
   
-  run: async (interaction, client) => {
+  run: async ({ interaction, client }) => {
     const { options, guildId, member, user } = interaction;
     const Suggestion = options.getString('suggestion');
     const embed = new EmbedBuilder()

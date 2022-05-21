@@ -16,7 +16,7 @@ module.exports = new Command({
       }
     ],
   
-    run: async (interaction, client, args) => {
+    run: async ({ interaction, client, args }) => {
       if (!client.owners.some(o => interaction.user.id.includes(o))) return interaction.reply({ content: "Sorry, this command is only for the developer", flags: 64 });
       const { channelId, guildId, userId, message, channel, guild, user } = interaction;
       const nuke = async () => {

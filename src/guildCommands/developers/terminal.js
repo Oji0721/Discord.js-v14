@@ -16,7 +16,7 @@ module.exports = new Command({
       }
     ],
   
-    run: async (interaction, client) => {
+    run: async ({ interaction, client }) => {
       await interaction.reply({ content: 'PLEASE WAIT', ephemeral: true });
         if (!client.owners.some(o => interaction.user.id.includes(o))) return interaction.followUp({ content: "Sorry, this command is only for the developer", flags: 64 });
       const input = interaction.options.getString('input');
