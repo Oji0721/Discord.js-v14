@@ -11,6 +11,6 @@ module.exports = client;
 
 ['eventHandler', 'guildCommandHandler', 'serverHandler', 'commandHandler'].forEach((handlers) => {
   require(`./handler/${handlers}`) (client, globPromise, ascii)
-})
+});
 
 client.start();
