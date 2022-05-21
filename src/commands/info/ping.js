@@ -1,31 +1,21 @@
-const { 
-  Client, 
-  ChatInputCommandInteraction, 
-  ApplicationCommandType, 
-  ApplicationCommandOptionType, 
-  EmbedBuilder 
-} = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
+const { Command } = require('../../structures/functions/Command');
 
-module.exports = {
+module.exports = new Command({
     name: "ping",
     description: "Returns a WebSocket ping.",
-    type: ApplicationCommandType.ChatInput,
+    type: 1,
     cooldown: 10000,
     options: [
       {
         name: 'ephemeral',
         description: 'Do you want to do the message ephemeral?',
-        type: ApplicationCommandOptionType.Boolean,
+        type: 5,
       }
     ],
-    /**
-     *
-     * @param {Client} client
-     * @param {ChatInputCommandInteraction} interaction
-     * @param {String[]} args
-     */
-    run: async (client, interaction, args) => {
-      const [ephemeral] = args;
+
+    run: async (interaction, client) => {
+      const ephemeral = interaction.options.getBoolean('ephemeral');
       const pongMessage = await interaction.reply({ content: '⠀', fetchReply: true, ephemeral: ephemeral })
         const embed = new EmbedBuilder()
       .setAuthor({ name: '🏓 Pong!'})
@@ -34,4 +24,4 @@ module.exports = {
       .setFooter({ text: interaction.user.tag, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
       return await interaction.editReply({ embeds: [embed] })
     }
-}
+})

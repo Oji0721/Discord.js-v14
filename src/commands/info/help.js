@@ -1,25 +1,13 @@
-const { 
-  Client, 
-  ChatInputCommandInteraction, 
-  ApplicationCommandType, 
-  ApplicationCommandOptionType, 
-  EmbedBuilder, 
-  ActionRowBuilder, 
-  SelectMenuBuilder
-} = require("discord.js");
+const { EmbedBuilder, ActionRowBuilder, SelectMenuBuilder } = require("discord.js");
+const { Command } = require('../../structures/functions/Command');
 
-module.exports = {
+module.exports = new Command({
     name: "help",
     description: "List of the commands.",
-    type: ApplicationCommandType.ChatInput,
+    type: 1,
     cooldown: 60000,
-    /**
-     *
-     * @param {Client} client
-     * @param {ChatInputCommandInteraction} interaction
-     * @param {String[]} args
-     */
-    run: async (client, interaction, args) => {
+  
+    run: async (inteeaction, client) => {
       const row = new ActionRowBuilder()
       .addComponents([
         new SelectMenuBuilder()
@@ -67,4 +55,4 @@ module.exports = {
       await interaction.reply({ embeds: [embed], components: [row] });
       setTimeout(() => interaction.editReply({ embeds: [embed], components: [row2] }).catch((err) => {}), 60000)
     }
-}
+})

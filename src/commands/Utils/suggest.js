@@ -1,34 +1,21 @@
-const { 
-  Client, 
-  ChatInputCommandInteraction, 
-  EmbedBuilder, 
-  ActionRowBuilder, ButtonBuilder, 
-  ApplicationCommandType, 
-  ApplicationCommandOptionType 
-} = require("discord.js");
+const { EmbedBuilder, ActionRowBuilder, ButtonBuilder } = require("discord.js");
 const SuggestionsGuild = require('../../structures/models/SuggestionGuild');
+const { Command } = require('../../structures/functions/Command');
 
-module.exports = {
+module.exports = new Command({
     name: 'suggest',
     description: "Suggest a suggestion",
-    type: ApplicationCommandType.ChatInput,
+    type: 1,
     options: [
       {
         name: 'suggestion',
         description: 'Describe your suggestion.',
-        type: ApplicationCommandOptionType.String,
+        type: 3,
         required: true
       }
     ],
   
-  /**
-* 
-* @param {Client} client 
-* @param {ChatInputCommandInteraction} interaction 
-* @param {String[]} args
-*/
-  
-  run: async (client, interaction, args) => {
+  run: async (interaction, client) => {
     const { options, guildId, member, user } = interaction;
     const Suggestion = options.getString('suggestion');
     const embed = new EmbedBuilder()
@@ -60,12 +47,10 @@ module.exports = {
         if (!channel) {
           return interaction.reply({ content: 'This server is doesn\'t enabled this future.', flags: 64 })
         }
-
-        // if (!channel) return console.log('No channel found');
         
-        channel.send({ embeds: [embed], components: [Buttons], fetchReply: true }).then((msg) => {
-        msg.react('👍')
-        msg.react('👎')
+        channel.send({ embeds: [embed], components: [Buttons], fetchReply: true }).then(async (msg) => {
+        await msg.react('👍')
+        await msg.react('👎')
       });
         
       return interaction.reply({ content: 'You successfully suggested!', flags: 64 });
@@ -74,4 +59,4 @@ module.exports = {
       console.log(err);
     }
   }
-}
+})

@@ -1,4 +1,4 @@
-const { ChatInputCommandInteraction, ContextMenuCommandInteraction, ApplicationCommandOptionData, ApplicationCommandType } = require('discord.js');
+const { ChatInputCommandInteraction, ContextMenuCommandInteraction, ApplicationCommandOptionData, PermissionsBitField } = require('discord.js');
 const { WbotClient } = require('../client/WbotClient');
 
 /**
@@ -10,7 +10,7 @@ function RunFunction(interaction, client, args) {}
 
 class Command {
   /**
-  * @typedef {{ name: String, description: String, type?: Number, default_permission?: Boolean, cooldown?: Number, options?: ApplicationCommandOptionData, run: RunFunction }} CommandOptions
+  * @typedef {{ name: String, description: String, type?: Number, default_permission?: Boolean, cooldown?: Number, userPermissions?: PermissionsBitField, options?: ApplicationCommandOptionData, run: RunFunction }} CommandOptions
   * @param {CommandOptions} options
   */
   constructor(options) {

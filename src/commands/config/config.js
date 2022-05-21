@@ -1,18 +1,12 @@
-const { 
-  Client, 
-  ChatInputCommandInteraction, 
-  ApplicationCommandType, 
-  ApplicationCommandOptionType, 
-  EmbedBuilder, 
-  ChannelType 
-} = require('discord.js');
+const { EmbedBuilder, ChannelType } = require('discord.js');
 const SuggestionsGuild = require('../../structures/models/SuggestionGuild');
 const ChatBot = require('../../structures/models/ChatBot');
+const { Command } = require('../../structures/functions/Command');
 
-module.exports = {
+module.exports = new Command({
     name: 'config',
     description: 'setup some features in the server!',
-    type: ApplicationCommandType.ChatInput,
+    type: 1,
     default_permission: false,
     userPermissions: 'Administrator',
     botPermissions: 'Administrator',
@@ -20,13 +14,13 @@ module.exports = {
       {
         name: 'suggestion',
         description: 'Setup a Suggestion channel.',
-        type: ApplicationCommandOptionType.Subcommand,
+        type: 1,
         options: [
           {
             name: 'channel',
             description: 'Mention a channel that you wanna setup as Suggestion channel.',
             required: true,
-            type: ApplicationCommandOptionType.Channel,
+            type: 7,
             channelTypes: [
               ChannelType.GuildText
             ]
@@ -36,13 +30,13 @@ module.exports = {
       {
         name: 'chatbot',
         description: 'Setup a ChatBot channel.',
-        type: ApplicationCommandOptionType.Subcommand,
+        type: 1,
         options: [
           {
             name: 'channel',
             description: 'Mention a channel that you wanna setup as ChatBot channel.',
             required: true,
-            type: ApplicationCommandOptionType.Channel,
+            type: 7,
             channelTypes: [
               ChannelType.GuildText
             ]
@@ -50,14 +44,9 @@ module.exports = {
         ]
       }
     ],
-     /**
-     *
-     * @param {Client} client
-     * @param {ChatInputCommandInteraction} interaction
-     * @param {String[]} args
-     */
-  run: async (client, interaction, args) => {
-    const [subcommand] = args;
+
+  run: async (interaction) => {
+    const subcommand = interaction.options.getSubcommand();
     const channel = interaction.options.getChannel('channel').id;
     switch (subcommand) {
       case 'suggestion' : {
@@ -104,4 +93,4 @@ module.exports = {
         break;
     }
   }
-}
+})
