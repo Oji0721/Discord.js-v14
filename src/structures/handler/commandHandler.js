@@ -1,14 +1,18 @@
 const { ApplicationCommandType } = require('discord.js');
+const { Command } = require('../functions/Command');
 
 module.exports = async (client, globPromise, ascii) => {
   const table = new ascii('Commands Loaded');
   table.setHeading('File', "Load Status");
-  const slashCommands = await globPromise(
+  /**
+  * @type {Command}
+  */
+  const command = await globPromise(
     `${process.cwd()}/src/commands/*/*.js`
   );
 
   const arrayOfSlashCommands = [];
-  slashCommands.map((value) => {
+  command.map((value) => {
     const file = require(value);
     const L = value.split('/');
     

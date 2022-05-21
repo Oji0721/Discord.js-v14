@@ -1,10 +1,12 @@
-const { Command } = require('../../structure/functions/Command');
+const { Command } = require('../../structures/functions/Command');
 
 module.exports = new Command({
   name: 'test',
   description: 'test',
+  type: 1,
+  cooldown: 10000,
 
-  run: async (client, interaction, args) => {
-   
+  run: async (interaction) => {
+    interaction.reply('working')
   }
 })

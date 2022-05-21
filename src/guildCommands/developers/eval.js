@@ -1,35 +1,23 @@
-const { 
-  Client, 
-  ChatInputCommandInteraction, 
-  ApplicationCommandType, 
-  ApplicationCommandOptionType, 
-  EmbedBuilder, 
-  Formatters 
-} = require("discord.js");
+const { EmbedBuilder, Formatters } = require("discord.js");
 const { inspect } = require('util');
-const child = require('child_process');
+const { Command } = require('../../structures/functions/Command');
 
-module.exports = {
+module.exports = new Command({
     name: "eval",
     description: "Evalute some JavaScript files.",
-    type: ApplicationCommandType.ChatInput,
+    type: 1,
     default_permission: false,
     options: [
       {
         name: 'code',
         description: 'Write your code here.',
-        type: ApplicationCommandOptionType.String,
+        type: 3,
         required: true
       }
     ],
-    /**
-     *
-     * @param {Client} client
-     * @param {ChatInputCommandInteraction} interaction
-     * @param {String[]} args
-     */
-    run: async (client, interaction, args) => {
-      if (client.owners.some(o => interaction.user.id.includes(o))) return interaction.reply({ content: "Sorry, this command is only for the developer", flags: 64 });
+  
+    run: async (interaction, client, args) => {
+      if (!client.owners.some(o => interaction.user.id.includes(o))) return interaction.reply({ content: "Sorry, this command is only for the developer", flags: 64 });
       const { channelId, guildId, userId, message, channel, guild, user } = interaction;
       const nuke = async () => {
         let newChannel = await channel.clone();
@@ -68,4 +56,4 @@ module.exports = {
             interaction.followUp({ embeds: [embedfailure], ephemeral: true }) 
         }
     }
-}
+})
