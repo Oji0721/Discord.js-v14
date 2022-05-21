@@ -38,7 +38,7 @@ module.exports = {
               .setDescription(`⚠️ **SLOW DOWN**\nYou are on cooldown \`${ms(client.cooldown.get(`${command.name}, ${interaction.user.id}`) - Date.now(), { long: true })}\``)
             ], flags: 64 });
           } else {
-          command.run(interaction, client, args);
+          command.run({ interaction, client, args });
           client.cooldown.set(`${command.name}, ${interaction.user.id}`, Date.now() + command.cooldown);
           setTimeout(() => {
             client.cooldown.delete(`${command.name}, ${interaction.user.id}`);
@@ -56,10 +56,10 @@ module.exports = {
             .setDescription(`I need a \`${command.userPermissions}\` permission to use this command.`)
           ], flags: 64 });
           } else {
-            command.run(interaction,  client, args);
+            command.run({ interaction,  client, args });
           }
         } else if (command.run) {
-          command.run(interaction, client, args);
+          command.run({ interaction, client, args });
         }
       }
     }
@@ -67,7 +67,7 @@ module.exports = {
     // Context Menu Handling
     if (interaction.isContextMenuCommand()) {
       const cmd = client.commands.get(interaction.commandName) || client.guildCommands.get(interaction.commandName);
-      if (cmd) cmd.run(interaction, client);
+      if (cmd) cmd.run({ interaction, client });
     }
   }
 }
