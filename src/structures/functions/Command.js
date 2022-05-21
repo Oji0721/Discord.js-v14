@@ -9,7 +9,6 @@ function RunFunction(runOptions) {}
 
 class Command {
   /**
-  * @typedef {{ cooldown?: Number, userPermissions?: PermissionsBitField, run: RunFunction } & ApplicationCommandData } CommandOptions
   * @typedef {{ cooldown?: Number, userPermissions?: PermissionsBitField, run: RunFunction } & ApplicationCommandData} CommandOptions
   * @param {CommandOptions} options
   */
