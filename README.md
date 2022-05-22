@@ -17,7 +17,7 @@ A discord.js handler which support slash commands , events and more...
 
 **2.** Download this repo and unzip it | or git clone it
 
-**3.** Fill everything in **`structures/cobfug/config.json`**
+**3.** Fill everything in **`structures/config/config.json`**
 
 **4.** Fill everything in **`.env`**
 
