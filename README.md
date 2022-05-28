@@ -28,7 +28,7 @@ A discord.js handler which support slash commands , events and more...
 
 ### _Modify - config.json_
 
-```json
+```js
   "owners": [
     "" // Owner ID here
   ]
