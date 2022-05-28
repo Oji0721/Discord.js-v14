@@ -37,7 +37,6 @@ class WbotClient extends Client {
       ]
     });
     this.commands = new Collection();
-    this.guildCommands = new Collection();
     this.snipes = new Collection();
     this.cooldown = new Collection();
     this.config = require("../config/config.json");
