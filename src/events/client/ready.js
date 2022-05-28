@@ -9,6 +9,10 @@ module.exports = {
     await client.application.fetch();
     
     console.log(`${client.user.tag} is ready to go!`);
-    await connect(process.env.MONGO_URL).then(() => console.log('Connected to mongodb')).catch((err) => console.log(err));
+    if (process.env.MONGO_URL) {
+      await connect(process.env.MONGO_URL)
+        .then(() => console.log('Connected to mongodb'))
+        .catch((err) => console.log(err));
+    }
   }
 }
