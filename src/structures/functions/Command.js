@@ -1,6 +1,5 @@
 const {
   ChatInputCommandInteraction,
-  ContextMenuCommandInteraction,
   ApplicationCommandData,
   CommandInteractionOptionResolver,
   PermissionResolvable,
@@ -9,7 +8,7 @@ const {
 const { WbotClient } = require('../client/WbotClient');
 
 /**
-* @typedef {{ client: WbotClient, interaction: ChatInputCommandInteraction & { member: GuildMember, client: WbotClient }, inter: ContextMenuCommandInteraction, args: CommandInteractionOptionResolver }} RunOptions
+* @typedef {{ client: WbotClient, interaction: ChatInputCommandInteraction & { member: GuildMember, client: WbotClient }, args: CommandInteractionOptionResolver }} RunOptions
 * @param {RunOptions} runOptions
 */
 function RunFunction(runOptions) { }
