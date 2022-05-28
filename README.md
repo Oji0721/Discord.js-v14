@@ -37,8 +37,9 @@ A discord.js handler which support slash commands , events and more...
 ### _Modify - .env_
 
 ```txt
-DISCORD_TOKEN=YOUR-BOT-TOKEN
-MONGO_URL=YOUR-MONGOOSE-URL
+DISCORD_TOKEN=YOUR-TOKEN
+GUILD_ID=YOUR-GUILDID
+MONGO_URL=YOUR_MONGO_URL
 ```
 
 ## Handler Features
@@ -46,7 +47,6 @@ MONGO_URL=YOUR-MONGOOSE-URL
 - easy to use Handler
 - support event Handler
 - slash commands support
-- message commands support
 - based on [Discord.js v14 Documents](https://deploy-preview-1011--discordjs-guide.netlify.app/additional-info/changes-in-v14.html)
 - provied code snipet for commands
 - support sub directory in commands folder
@@ -75,6 +75,21 @@ module.exports = new Command({
   run: async ({ interaction }) => {
     // Code
   },
+});
+```
+
+- For ContextMenu
+```js
+
+const { ContextCommand } = require('../../structures/functions/ContextCommand');
+
+module.exports = new ContextCommand({
+  name: '',
+  type: 3, // For Message and 2 For User
+
+  run: async ({ interaction }) => {
+   // code
+  }
 });
 ```
 
