@@ -45,12 +45,12 @@ module.exports = {
           }, command.cooldown);
           }
         } else if (command.userPermissions || command.botPermissions) {
-          if (!interaction.member.permissions.has(command.userPermissions)) {
+          if (!interaction.member.permissions.has(command.userPermissions, true)) {
             return interaction.reply({ embeds: [
               embed.setColor(client.color.redColor)
               .setDescription(`You need a \`${command.userPermissions}\` permission to use this command.`)
             ], flags: 64 });
-          } else if (!interaction.guild.members.me.permissions.has(command.botPermissions)) {
+          } else if (!interaction.guild.members.me.permissions.has(command.botPermissions, true)) {
             return interaction.reply({ embeds: [
             embed.setColor(client.color.mainColor)
             .setDescription(`I need a \`${command.userPermissions}\` permission to use this command.`)
