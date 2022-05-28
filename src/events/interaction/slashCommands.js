@@ -12,7 +12,7 @@ module.exports = {
       /**
       * @type {Command}
       */
-      const command = client.commands.get(interaction.commandName) || client.guildCommands.get(interaction.commandName);
+      const command = client.commands.get(interaction.commandName);
       if (!command) return interaction.reply({ content: "An error has occured", ephemeral: true });
       const embed = new EmbedBuilder()
       .setAuthor({ name: interaction.user.tag, iconURL: interaction.user.displayAvatarURL({ dynamic: true}) })
