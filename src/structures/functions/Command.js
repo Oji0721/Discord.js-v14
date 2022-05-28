@@ -1,7 +1,6 @@
 const {
   ChatInputCommandInteraction,
   ApplicationCommandData,
-  CommandInteractionOptionResolver,
   PermissionResolvable,
   GuildMember
 } = require('discord.js');
@@ -15,7 +14,7 @@ function RunFunction(runOptions) { }
 
 class Command {
   /**
-  * @typedef {{ cooldown?: Number, userPermissions?: PermissionResolvable, botPermissions?: PermissionResolvable, run: RunFunction } & ApplicationCommandData } CommandOptions
+  * @typedef {{ cooldown?: Number, userPermissions?: PermissionResolvable, botPermissions?: String[], run: RunFunction } & ApplicationCommandData } CommandOptions
   * @param {CommandOptions} options
   */
   constructor(options) {
