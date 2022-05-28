@@ -23,12 +23,12 @@ A discord.js handler which support slash commands , events and more...
 
 **5.** after Fill everything in config Type in shall **`npm install`**
 
-**6.** start the bot with **`node src/structures/index.js`**
+**6.** start the bot with **`node src/structures/index.js` or `npm start`**
 <br/>
 
 ### _Modify - config.json_
 
-```js
+```json
   "owners": [
     "" // Owner ID here
   ]
