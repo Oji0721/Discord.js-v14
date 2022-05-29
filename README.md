@@ -8,6 +8,7 @@ I'm a Discord Bot Developer and here is my bot handler
 # Discord.JS V14 Handler
 
 A discord.js handler which support slash commands , events and more...
+**Note: The Legacy command/prefix command will coming soon. :) 
 
 
 
