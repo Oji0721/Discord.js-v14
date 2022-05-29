@@ -1,5 +1,6 @@
-const { ApplicationCommandType } = require('discord.js');
 const { Command } = require('../functions/Command');
+const { REST } = require('@discordjs/rest');
+const { Routes } = require('discord-api-types/v10');
 
 module.exports = async (client, globPromise, ascii) => {
   const table = new ascii('Commands Loaded');
@@ -23,15 +24,18 @@ if (!file?.name) {
   table.addRow(L[7], '✅');
 };
 
-    if ([ApplicationCommandType.Message, ApplicationCommandType.User].includes(file.type)) delete file.description;
+    if ([2, 3].includes(file.type)) delete file.description;
     arrayOfSlashCommands.push(file)
   });
-  client.on("ready", async () => {
-    // Register for a single guilds
-    await client.guilds.cache.get(process.env.GUILD_ID).commands?.set(arrayOfSlashCommands);
-
-    // Register for all the guilds the bot is in
-    // await client.application.commands?.set(arrayOfSlashCommands)
+  const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
+  client.on('ready', async () => {
+    (async () => {
+      try {
+        await rest.put(Routes.applicationCommands(client.user.id), { body: arrayOfSlashCommands });
+      } catch (err) {
+        console.log(err)
+      }
+    })();
   });
-  console.log(table.toString());
+    console.log(table.toString());
 }
