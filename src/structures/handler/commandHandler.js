@@ -31,7 +31,11 @@ if (!file?.name) {
   client.on('ready', async () => {
     (async () => {
       try {
-        await rest.put(Routes.applicationCommands(client.user.id), { body: arrayOfSlashCommands });
+        if (process.env.GUILD_ID) {
+          await rest.put(Routes.applicationGuildCommands(client.user.id, process.env.GUILD_ID), { body: arrayOfSlashCommands });
+        } else {
+          await rest.put(Routes.applicationCommands(client.user.id), { body: arrayOfSlashCommands });
+        }
       } catch (err) {
         console.log(err)
       }
