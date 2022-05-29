@@ -28,10 +28,10 @@ if (!file?.name) {
   });
   client.on("ready", async () => {
     // Register for a single guilds
-    await client.guilds.cache.get(process.env.GUILD_ID).commands.set(arrayOfSlashCommands);
+    await client.guilds.cache.get(process.env.GUILD_ID).commands?.set(arrayOfSlashCommands);
 
     // Register for all the guilds the bot is in
-    // await client.application.commands.set(arrayOfSlashCommands)
+    // await client.application.commands?.set(arrayOfSlashCommands)
   });
   console.log(table.toString());
 }
