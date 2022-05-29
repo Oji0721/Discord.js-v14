@@ -38,7 +38,7 @@ A discord.js handler which support slash commands , events and more...
 
 ```txt
 DISCORD_TOKEN=YOUR-TOKEN
-GUILD_ID=YOUR-GUILDID
+GUILD_ID=YOUR-GUILDID -------- Optional
 MONGO_URL=YOUR_MONGO_URL
 ```
 
