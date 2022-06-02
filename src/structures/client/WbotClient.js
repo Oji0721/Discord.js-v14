@@ -42,7 +42,6 @@ class WbotClient extends Client {
     this.config = require("../config/config.json");
     this.owners = this.config.owners;
     this.color = this.config.color;
-    this.discordTogether = new DiscordTogether(this);
   }
   start() {
     if(!process.env.DISCORD_TOKEN) return console.log('❌ Please provide a DISCORD_TOKEN and put it in .env file');
