@@ -4,8 +4,7 @@
   "description": "A Discord.js v14 Command Handler!",
   "scripts": {
     "start": "node src/structures/index.js",
-    "dev": "nodemon src/structures/index.js",
-    "update": "git fetch && git reset --hard origin/master && git pull"
+    "dev": "nodemon src/structures/index.js"
   },
   "author": "Oji0721",
   "license": "MIT",
