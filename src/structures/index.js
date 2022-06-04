@@ -9,7 +9,7 @@ const client = new WbotClient();
 
 module.exports = client;
 
-['eventHandler', 'commandHandler'].forEach((handlers) => {
+['eventHandler', 'commandHandler', 'processHandler'].forEach((handlers) => {
   require(`./handler/${handlers}`) (client, globPromise, ascii)
 });
 
