@@ -4,8 +4,12 @@ module.exports = async (client, globPromise, ascii) => {
   
   (await globPromise(`${process.cwd()}/src/events/*/*.js`)).map(async (file) => {
     const event = require(file);
-    client.on(event.event, event.run.bind(null, client));
-    
+    if (!event.event) {
+      table.addRow(event.event, '❌', 'This file doesn\'t had a name.');
+    } else {
+      client.on(event.event, event.run.bind(null, client));
+      table.addRow(event.event, '✅');
+    }
   });
   console.log(table.toString());
 }
