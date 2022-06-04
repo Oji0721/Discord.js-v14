@@ -1,13 +1,10 @@
+const { Event } = require('../../structures/functions/Event');
 const { ApplicationCommandOptionType, EmbedBuilder } = require('discord.js');
 const ms = require('ms');
 const { Command } = require('../../structures/functions/Command');
 
-module.exports = {
-  name: 'interactionCreate',
-  
-  async execute(interaction, client) {
+module.exports = new Event('interactionCreate', (client, interaction) => {
     if (!interaction.guild) return interaction.reply({ content: 'You can\'t run a command in Dm\'s', ephemeral: true });
-    // Slash Command Handling
     if (interaction.isChatInputCommand()) {
       /**
       * @type {Command}
@@ -63,5 +60,4 @@ module.exports = {
         }
       }
     }
-  }
 }
