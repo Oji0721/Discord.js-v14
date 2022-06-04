@@ -1,14 +1,14 @@
 const { WbotClient } = require('../client/WbotClient');
 const { ClientEvents } = require('discord.js');
 /**
-* @template {key of ClientEvents} events
+* @template {keyof ClientEvents} events
 * @param {WbotClient} client
 * @param {ClientEvents[events]} eventArgs
 */
 function RunFunction(...eventArgs, client) { }
 
 /**
-* @template {key of ClientEvents} events
+* @template {keyof ClientEvents} events
 */
 class Event {
   /**
