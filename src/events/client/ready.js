@@ -1,11 +1,8 @@
+const { Event } = require('../../structures/functions/Event');
 const { connect } = require('mongoose');
 require('dotenv').config();
 
-module.exports = {
-  name: 'ready',
-  once: true,
-  
-  async execute(client) {
+module.exports = new Event('ready', async(client) => {
     await client.application.fetch();
     
     console.log(`${client.user.tag} is ready to go!`);
@@ -14,5 +11,4 @@ module.exports = {
         .then(() => console.log('Connected to mongodb'))
         .catch((err) => console.log(err));
     }
-  }
-}
+})
