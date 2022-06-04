@@ -81,7 +81,6 @@ module.exports = new Command({
 
 - For ContextMenu
 ```js
-
 const { ContextCommand } = require('../../structures/functions/ContextCommand');
 
 module.exports = new ContextCommand({
@@ -92,6 +91,15 @@ module.exports = new ContextCommand({
    // code
   }
 });
+```
+
+- For Event class
+```js
+const { Event } = require('../../structures/functions/Event');
+
+module.exports = new Event('EVENT-NAME', async (client, the args that you need in the event) => {
+  // code
+})
 ```
 
 ## License
