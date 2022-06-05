@@ -1,10 +1,10 @@
 {
   "name": "Wbot",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A Discord.js v14 Command Handler!",
   "scripts": {
     "start": "node src/structures/index.js",
-    "dev": "nodemon src/structures/index.js"
+    "dev": "nodemon src/structures/index.js",
   },
   "author": "Oji0721",
   "license": "MIT",
@@ -12,10 +12,10 @@
     "nodemon": "^2.0.15"
   },
   "dependencies": {
-    "@discordjs/rest": "^0.5.0-dev.1653480262-68d5169",
+    "@discordjs/rest": "^0.6.0-dev.1654387861-10009a4",
     "ascii-table": "^0.0.9",
-    "discord-api-types": "^0.33.0",
-    "discord.js": "^14.0.0-dev.1653091711-fdeac9d",
+    "discord-api-types": "^0.33.3",
+    "discord.js": "^14.0.0-dev.1654387866-10009a4",
     "dotenv": "^16.0.0",
     "glob": "^8.0.1",
     "mongoose": "^6.3.1",
