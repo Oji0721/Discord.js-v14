@@ -13,7 +13,7 @@
     "nodemon": "^2.0.15"
   },
   "dependencies": {
-    "@discordjs/rest": "^ 0.6.0-dev.1654387861-10009a4",
+    "@discordjs/rest": "^0.6.0-dev.1654387861-10009a4",
     "ascii-table": "^0.0.9",
     "discord-api-types": "^0.33.3",
     "discord.js": "^14.0.0-dev.1654387866-10009a4",
