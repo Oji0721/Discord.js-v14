@@ -27,7 +27,7 @@ module.exports = async (client, globPromise, ascii) => {
     if ([2, 3].includes(file.type)) delete file.description;
     arrayOfSlashCommands.push(file)
   });
-  const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
+  const rest = new REST({ version: '10' }).setToken(client.token);
   client.on('ready', async () => {
     (async () => {
       try {
